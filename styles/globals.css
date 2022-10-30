@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-navbar {
+    @apply p-2 text-white rounded-lg hover:border-2 hover:text-black hover:bg-slate-200 hover:border-black;
+  }
+  .btn-navbar-right {
+    @apply text-xl p-3 font-semibold border-2 text-white border-white rounded-lg hover:text-black hover:bg-slate-200 hover:border-black;
+  }
+}
