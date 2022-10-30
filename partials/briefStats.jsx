@@ -33,6 +33,8 @@ function BriefStats() {
           isAsc
         )
       );
+    } else {
+      setSortedData([]);
     }
   }, [result.result]); // runs only on first successful fetch
 
@@ -53,58 +55,59 @@ function BriefStats() {
         </p>
       </div>
       <hr />
-      <div className="text-lg font-semibold p-3">
-        <p> Top Contributors by Continent </p>
-        <table className="min-w-full">
-          <thead className="border-b">
-            <tr>
-              <th
-                scope="col"
-                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              >
-                <div className="flex flex-row">
-                  <p className="px-1">Continent</p>
-                  <button
-                    className="rounded-lg"
-                    onClick={() => handleSortBy("continent")}
+      {result.result === true && (
+        <>
+          <div className="text-lg font-semibold p-3">
+            <p> Top Contributors by Continent </p>
+            <table className="min-w-full">
+              <thead className="border-b">
+                <tr>
+                  <th
+                    scope="col"
+                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    ⇅
-                  </button>
-                </div>
-              </th>
-              <th
-                scope="col"
-                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              >
-                <div className="flex flex-row">
-                  <p className="px-1">Players Count</p>
-                  <button
-                    className="rounded-lg"
-                    onClick={() => handleSortBy("playersInContinent")}
+                    <div className="flex flex-row">
+                      <p className="px-1">Continent</p>
+                      <button
+                        className="rounded-lg"
+                        onClick={() => handleSortBy("continent")}
+                      >
+                        ⇅
+                      </button>
+                    </div>
+                  </th>
+                  <th
+                    scope="col"
+                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    ⇅
-                  </button>
-                </div>
-              </th>
-              <th
-                scope="col"
-                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              >
-                <div className="flex flex-row">
-                  <p className="px-1">Total Dev Pts</p>
-                  <button
-                    className="rounded-lg"
-                    onClick={() => handleSortBy("total")}
+                    <div className="flex flex-row">
+                      <p className="px-1">Players Count</p>
+                      <button
+                        className="rounded-lg"
+                        onClick={() => handleSortBy("playersInContinent")}
+                      >
+                        ⇅
+                      </button>
+                    </div>
+                  </th>
+                  <th
+                    scope="col"
+                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    ⇅
-                  </button>
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {sortedData != []
-              ? sortedData.map((stats, index) => {
+                    <div className="flex flex-row">
+                      <p className="px-1">Total Dev Pts</p>
+                      <button
+                        className="rounded-lg"
+                        onClick={() => handleSortBy("total")}
+                      >
+                        ⇅
+                      </button>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedData.map((stats, index) => {
                   return (
                     <tr className="border-b" key={index}>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
@@ -118,11 +121,12 @@ function BriefStats() {
                       </td>
                     </tr>
                   );
-                })
-              : "No Data"}
-          </tbody>
-        </table>
-      </div>
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
       <hr />
     </div>
   );
