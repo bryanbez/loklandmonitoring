@@ -14,7 +14,7 @@ export const fetchDevPtsInSpecificLand = createAsyncThunk(
     const { landId, dateFrom, dateTo } = input;
     landId = parseFloat(landId);
     const response = await axios.get(
-      `http://api-lok-live.leagueofkingdoms.com/api/stat/land/contribution?landId=${landId}&from=${dateFrom}&to=${dateTo}`
+      `https://api-lok-live.leagueofkingdoms.com/api/stat/land/contribution?landId=${landId}&from=${dateFrom}&to=${dateTo}`
     );
     return response.data;
   }
