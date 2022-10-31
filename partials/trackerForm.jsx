@@ -10,10 +10,9 @@ function TrackerForm() {
   const dispatch = useDispatch();
 
   const handleValueChange = (e) => {
-    console.log(e.target.name);
     e.preventDefault();
     if (e.target.name === "landid") {
-      setLandId(e.target.value);
+      setLandId(e.target.value.replace(/\D/, ""));
     } else if (e.target.name === "datefrom") {
       setDateFrom(e.target.value);
     } else if (e.target.name === "dateto") {
@@ -40,7 +39,16 @@ function TrackerForm() {
             <label htmlFor="landid" className="text-lg font-display">
               Land ID:
             </label>
-            <select
+            <input
+              type="text"
+              pattern="[0-9]*"
+              name="landid"
+              id="landid"
+              value={landId}
+              onChange={handleValueChange}
+              className="text-lg font-normal p-3 border-2 border-black rounded-lg"
+            ></input>
+            {/* <select
               className="p-2 text-lg border-2 border-black rounded-lg"
               name="landid"
               id="landid"
@@ -49,7 +57,7 @@ function TrackerForm() {
             >
               <option defaultValue="000000"> Select Land ID</option>
               <option value="145470"> Land Id 145470 </option>
-            </select>
+            </select> */}
           </div>
           <div className="grid grid-flow-row auto-rows-auto pb-4">
             <label htmlFor="datefrom" className="text-lg font-display">

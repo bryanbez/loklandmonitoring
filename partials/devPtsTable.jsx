@@ -2,12 +2,17 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { devPtsListResult, fetchDevPtsMsg } from "../app/slices/playersdevpts";
+import {
+  devPtsListResult,
+  fetchDevPtsMsg,
+  status,
+} from "../app/slices/playersdevpts";
 import SortData from "../lib/sort";
 
 function DevPtsTable() {
   const result = useSelector(devPtsListResult);
   const message = useSelector(fetchDevPtsMsg);
+  const fetchStatus = useSelector(status);
   const lengthOfData = result.contribution?.length || 0;
   const [isAsc, setIsAsc] = useState(false);
   const [sortedData, setSortedData] = useState(result);
@@ -22,12 +27,17 @@ function DevPtsTable() {
     if (result.result === true) {
       handleSortBy(result);
     }
-  }, [result.result]);
+    if (fetchStatus === "loading") {
+      setSortedData([]);
+    }
+  }, [result.result, fetchStatus]);
 
   return (
     <div className="flex flex-col p-4">
       {result?.length !== 0 && (
-        <h3 className="text-display font-semibold">Showing {lengthOfData}</h3>
+        <h3 className="text-display font-semibold">
+          Showing {lengthOfData} records
+        </h3>
       )}
 
       {message && (
@@ -35,6 +45,8 @@ function DevPtsTable() {
           Error Fetching Records: {message}
         </h3>
       )}
+
+      {fetchStatus === "loading" && <h3>Loading...</h3>}
 
       {result.length !== 0 && (
         <table className="min-w-full">

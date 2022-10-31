@@ -31,15 +31,16 @@ export const devPtsSlice = createSlice({
       .addCase(fetchDevPtsInSpecificLand.fulfilled, (state, action) => {
         state.status = "fullfiled";
         if (action.payload.result === false) {
+          state.status = "success";
           state.message = action.payload.err.code || action.payload.err.message;
           state.devptslist = [];
         } else {
+          state.status = "success";
           state.devptslist = action.payload;
           state.message = null;
         }
       })
       .addCase(fetchDevPtsInSpecificLand.rejected, (state, action) => {
-        console.error("Failed");
         state.status = "failed";
         state.message = action.error.message;
       });
@@ -48,5 +49,6 @@ export const devPtsSlice = createSlice({
 
 export const devPtsListResult = (state) => state.devpts.devptslist;
 export const fetchDevPtsMsg = (state) => state.devpts.message;
+export const status = (state) => state.devpts.status;
 
 export default devPtsSlice.reducer;
