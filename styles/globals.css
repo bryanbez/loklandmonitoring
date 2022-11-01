@@ -9,4 +9,10 @@
   .btn-navbar-right {
     @apply text-xl p-3 font-semibold border-2 text-white border-white rounded-lg hover:text-black hover:bg-slate-200 hover:border-black;
   }
+  .laptop-arrangement-tracker-form {
+    @apply grid grid-flow-col auto-cols-auto space-x-2 p-4;
+  }
+  .laptop-arrangement {
+    @apply grid grid-cols-3 gap-4;
+  }
 }
