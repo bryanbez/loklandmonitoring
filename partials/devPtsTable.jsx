@@ -49,7 +49,7 @@ function DevPtsTable() {
       {fetchStatus === "loading" && <h3>Loading...</h3>}
 
       {result.length !== 0 && (
-        <table className="min-w-full">
+        <table className="table-auto">
           <thead className="border-b">
             <tr>
               <th

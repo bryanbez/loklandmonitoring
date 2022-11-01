@@ -34,7 +34,7 @@ function TrackerForm() {
   return (
     <div>
       <form action="" method="post">
-        <div className="sm:laptop-arrangement-tracker-form grid grid-flow-row auto-rows-auto space-x-2 p-1">
+        <div className="sm:laptop-arrangement-tracker-form grid grid-flow-row auto-rows-auto space-x-2 p-2">
           <div className="grid grid-flow-row auto-rows-auto pb-4">
             <label htmlFor="landid" className="text-lg font-display">
               Land ID:
