@@ -6,8 +6,8 @@ import { Provider } from "react-redux";
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
+      <AppNavbar />
       <div className="container px-4">
-        <AppNavbar />
         <Component {...pageProps} />
       </div>
     </Provider>

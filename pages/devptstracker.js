@@ -11,8 +11,8 @@ function DevPtsTracker() {
     <div>
       <h3 className="text-lg font-bold p-4"> Development Points Tracker</h3>
       <i>Beta Project. Only supports dates under 7 days. </i>
-      <div className="sm:laptop-arrangement grid gap-4">
-        <div className="sm:laptop-border grid p-3">
+      <div className="sm:md:lg:laptop-arrangement grid gap-4">
+        <div className="sm:md:lg:laptop-border grid p-3">
           <div>
             <TrackerForm></TrackerForm>
             <hr />
