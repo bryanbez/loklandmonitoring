@@ -3,9 +3,9 @@ import React from "react";
 
 function AppNavbar() {
   return (
-    <nav className="flex flex-wrap items-center justify-between py-6 bg-slate-700 px-6">
+    <nav className="flex flex-wrap items-center justify-between p-4 bg-slate-700">
       <Link href="/">
-        <a className="text-3xl text-white font-bold">LOKDEVPTSTRACKER</a>
+        <a className="text-2xl text-white font-bold">LOKDEVPTSTRACKER</a>
       </Link>
 
       <ul className="flex flex-auto w-80 pl-0 list-style-none mr-auto ml-5 font-semibold text-xl">

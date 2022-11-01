@@ -88,7 +88,7 @@ function TrackerForm() {
           <div className="grid grid-flow-row auto-rows-auto pb-4">
             <label htmlFor=""></label>
             <button
-              className="rounded-lg border-2 text-xl font-display border-blue-800 hover:bg-blue-800 hover:text-white hover:font-display"
+              className="rounded-lg border-2 p-2 text-xl font-display border-blue-800 hover:bg-blue-800 hover:text-white hover:font-display"
               onClick={searchData}
             >
               Search

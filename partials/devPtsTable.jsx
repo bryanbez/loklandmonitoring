@@ -7,6 +7,7 @@ import {
   fetchDevPtsMsg,
   status,
 } from "../app/slices/playersdevpts";
+import RoundNumbers from "../lib/roundNumbers";
 import SortData from "../lib/sort";
 
 function DevPtsTable() {
@@ -49,15 +50,15 @@ function DevPtsTable() {
       {fetchStatus === "loading" && <h3>Loading...</h3>}
 
       {result.length !== 0 && (
-        <table className="table-auto">
+        <table className="table-fixed">
           <thead className="border-b">
             <tr>
               <th
                 scope="col"
-                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                className="p-2 text-sm font-medium text-gray-900 text-left w-1/3"
               >
                 <div className="flex flex-row">
-                  <p className="px-1">Continent</p>
+                  <p className="">Continent</p>
                   <button
                     className="rounded-lg"
                     onClick={() => handleSortBy("continent")}
@@ -68,10 +69,10 @@ function DevPtsTable() {
               </th>
               <th
                 scope="col"
-                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                className="p-2 text-sm font-medium text-gray-900 text-left w-1/3"
               >
                 <div className="flex flex-row">
-                  <p className="px-1">Player Nickname</p>
+                  <p className="">Player Nickname</p>
                   <button
                     className="rounded-lg"
                     onClick={() => handleSortBy("name")}
@@ -82,10 +83,10 @@ function DevPtsTable() {
               </th>
               <th
                 scope="col"
-                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                className="p-2 text-sm font-medium text-gray-900 text-left w-1/3"
               >
                 <div className="flex flex-row">
-                  <p className="px-1">Developement Points</p>
+                  <p className="">Developement Points</p>
                   <button
                     className="rounded-lg"
                     onClick={() => handleSortBy("total")}
@@ -101,14 +102,14 @@ function DevPtsTable() {
               ? sortedData?.map((player) => {
                   return (
                     <tr className="border-b" key={player.kingdomId}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <td className="p-2 whitespace-nowrap text-sm font-medium text-gray-900">
                         {player.continent}
                       </td>
-                      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      <td className="p-2 text-sm text-gray-900 font-light whitespace-nowrap">
                         {player.name}
                       </td>
-                      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {player.total}
+                      <td className="p-2 text-sm text-gray-900 font-light whitespace-nowrap">
+                        {RoundNumbers(player.total)}
                       </td>
                     </tr>
                   );

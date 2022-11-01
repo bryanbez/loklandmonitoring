@@ -59,12 +59,12 @@ function BriefStats() {
         <>
           <div className="text-lg font-semibold p-3">
             <p> Top Contributors by Continent </p>
-            <table className="min-w-full">
+            <table className="table-fixed">
               <thead className="border-b">
                 <tr>
                   <th
                     scope="col"
-                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left w-1/3"
                   >
                     <div className="flex flex-row">
                       <p className="px-1">Continent</p>
@@ -78,7 +78,7 @@ function BriefStats() {
                   </th>
                   <th
                     scope="col"
-                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left w-1/3"
                   >
                     <div className="flex flex-row">
                       <p className="px-1">Players Count</p>
@@ -92,7 +92,7 @@ function BriefStats() {
                   </th>
                   <th
                     scope="col"
-                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left w-1/3"
                   >
                     <div className="flex flex-row">
                       <p className="px-1">Total Dev Pts</p>
