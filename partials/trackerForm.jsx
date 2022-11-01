@@ -34,7 +34,7 @@ function TrackerForm() {
   return (
     <div>
       <form action="" method="post">
-        <div className="grid grid-flow-col auto-cols-auto space-x-2 p-4">
+        <div className="grid grid-flow-col auto-cols-auto sm:grid-flow-row sm:auto-rows-auto xs:grid-flow-row xs:auto-rows-auto space-x-2 p-4">
           <div className="grid grid-flow-row auto-rows-auto pb-4">
             <label htmlFor="landid" className="text-lg font-display">
               Land ID:
