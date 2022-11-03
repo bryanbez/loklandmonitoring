@@ -18,4 +18,25 @@
   .laptop-border {
     @apply col-span-2 border-2 border-black rounded-lg p-3;
   }
+  .mobile-table-content-show {
+    @apply px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900;
+  }
+  .laptop-table-content-show {
+    @apply px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900;
+  }
+  .input-in-mobile {
+    @apply text-sm font-normal p-1 border-2 border-black rounded-lg;
+  }
+  .input-in-tablet-and-above {
+    @apply text-lg font-normal p-3 border-2 border-black rounded-lg;
+  }
+  .form-group-in-mobile {
+    @apply grid grid-flow-row auto-rows-auto pb-1;
+  }
+  .form-group-in-mobile-with-col-span {
+    @apply grid grid-flow-row auto-rows-auto pb-1 col-span-2;
+  }
+  .form-group-in-desktop {
+    @apply grid grid-flow-row auto-rows-auto pb-4;
+  }
 }

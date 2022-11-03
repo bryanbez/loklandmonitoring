@@ -1,5 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import convertToApiResult from "../../lib/convertToApiResult";
+import filterBatchFetch from "../../lib/filterBatchFetch";
+import { splitDatesIntoWeeks } from "../../lib/splitDatesIntoWeeks";
 
 const initialState = {
   status: null,
@@ -13,10 +16,30 @@ export const fetchDevPtsInSpecificLand = createAsyncThunk(
   async (input) => {
     const { landId, dateFrom, dateTo } = input;
     landId = parseFloat(landId);
-    const response = await axios.get(
-      `https://api-lok-live.leagueofkingdoms.com/api/stat/land/contribution?landId=${landId}&from=${dateFrom}&to=${dateTo}`
-    );
-    return response.data;
+
+    let timeDiff = new Date(dateTo).getTime() - new Date(dateFrom).getTime();
+    let daysDiff = timeDiff / (1000 * 3600 * 24);
+
+    if (daysDiff < 7) {
+      const response = await axios.get(
+        `https://api-lok-live.leagueofkingdoms.com/api/stat/land/contribution?landId=${landId}&from=${dateFrom}&to=${dateTo}`
+      );
+      return response.data;
+    } else {
+      let weeks = splitDatesIntoWeeks(dateFrom, dateTo);
+      let apis = convertToApiResult(weeks, landId);
+
+      console.log(apis);
+
+      // dateApiList.forEach(async (everyLink) => {
+      //   const response = await axios.get(everyLink);
+      //   if (response.data.contribution != 0) {
+      //     allResults.push(...response.data.contribution);
+      //   }
+      // });
+      // filterBatchFetch(allResults);
+      // return "No Data";
+    }
   }
 );
 

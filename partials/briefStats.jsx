@@ -59,12 +59,12 @@ function BriefStats() {
         <>
           <div className="text-lg font-semibold p-3">
             <p> Top Contributors by Continent </p>
-            <table className="table-fixed">
+            <table className="min-w-full">
               <thead className="border-b">
                 <tr>
                   <th
                     scope="col"
-                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left w-1/3"
+                    className="sm:laptop-table-content-show mobile-table-content-show"
                   >
                     <div className="flex flex-row">
                       <p className="px-1">Continent</p>
@@ -78,7 +78,7 @@ function BriefStats() {
                   </th>
                   <th
                     scope="col"
-                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left w-1/3"
+                    className="sm:laptop-table-content-show mobile-table-content-show"
                   >
                     <div className="flex flex-row">
                       <p className="px-1">Players Count</p>
@@ -92,7 +92,7 @@ function BriefStats() {
                   </th>
                   <th
                     scope="col"
-                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left w-1/3"
+                    className="sm:laptop-table-content-show mobile-table-content-show"
                   >
                     <div className="flex flex-row">
                       <p className="px-1">Total Dev Pts</p>
@@ -110,13 +110,13 @@ function BriefStats() {
                 {sortedData.map((stats, index) => {
                   return (
                     <tr className="border-b" key={index}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <td className="sm:laptop-table-content-show mobile-table-content-show">
                         {stats.continent}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <td className="sm:laptop-table-content-show mobile-table-content-show">
                         {stats.playersInContinent}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <td className="sm:laptop-table-content-show mobile-table-content-show">
                         {RoundNumbers(stats.total)}
                       </td>
                     </tr>

@@ -27,15 +27,15 @@ function TrackerForm() {
       dateTo: dateTo,
       landId: landId,
     };
-
     dispatch(fetchDevPtsInSpecificLand(inputvalue));
   };
 
   return (
     <div>
       <form action="" method="post">
-        <div className="sm:md:lg:laptop-arrangement-tracker-form grid grid-flow-row auto-rows-auto space-x-2 p-2">
-          <div className="grid grid-flow-row auto-rows-auto pb-4">
+        <div className="sm:laptop-arrangement-tracker-form grid grid-cols-2 gap-0.5">
+          {/* Form group 1 */}
+          <div className="sm:md:lg:form-group-in-desktop form-group-in-mobile-with-col-span ">
             <label htmlFor="landid" className="text-lg font-display">
               Land ID:
             </label>
@@ -46,20 +46,11 @@ function TrackerForm() {
               id="landid"
               value={landId}
               onChange={handleValueChange}
-              className="text-lg font-normal p-3 border-2 border-black rounded-lg"
+              className="sm:input-in-tablet-and-above input-in-mobile"
             ></input>
-            {/* <select
-              className="p-2 text-lg border-2 border-black rounded-lg"
-              name="landid"
-              id="landid"
-              value={landId}
-              onChange={handleValueChange}
-            >
-              <option defaultValue="000000"> Select Land ID</option>
-              <option value="145470"> Land Id 145470 </option>
-            </select> */}
           </div>
-          <div className="grid grid-flow-row auto-rows-auto pb-4">
+          {/* Form group 2 */}
+          <div className="sm:md:lg:form-group-in-desktop form-group-in-mobile">
             <label htmlFor="datefrom" className="text-lg font-display">
               From
             </label>
@@ -69,10 +60,11 @@ function TrackerForm() {
               id="datefrom"
               value={dateFrom}
               onChange={handleValueChange}
-              className="text-lg font-normal p-3 border-2 border-black rounded-lg"
+              className="sm:input-in-tablet-and-above input-in-mobile"
             />
           </div>
-          <div className="grid grid-flow-row auto-rows-auto pb-4">
+          {/* Form group 3 */}
+          <div className="sm:md:lg:form-group-in-desktop form-group-in-mobile">
             <label htmlFor="dateto" className="text-lg font-display">
               To
             </label>
@@ -82,10 +74,11 @@ function TrackerForm() {
               id="dateto"
               value={dateTo}
               onChange={handleValueChange}
-              className="text-lg font-normal p-3 border-2 border-black rounded-lg"
+              className="sm:input-in-tablet-and-above input-in-mobile"
             />
           </div>
-          <div className="grid grid-flow-row auto-rows-auto pb-4">
+          {/* Form group 4 */}
+          <div className="sm:md:lg:form-group-in-desktop form-group-in-mobile-with-col-span">
             <label htmlFor=""></label>
             <button
               className="rounded-lg border-2 p-2 text-xl font-display border-blue-800 hover:bg-blue-800 hover:text-white hover:font-display"

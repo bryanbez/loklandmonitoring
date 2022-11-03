@@ -55,7 +55,7 @@ function DevPtsTable() {
             <tr>
               <th
                 scope="col"
-                className="p-2 text-sm font-medium text-gray-900 text-left w-1/3"
+                className="sm:laptop-table-content-show mobile-table-content-show"
               >
                 <div className="flex flex-row">
                   <p className="">Continent</p>
@@ -69,7 +69,7 @@ function DevPtsTable() {
               </th>
               <th
                 scope="col"
-                className="p-2 text-sm font-medium text-gray-900 text-left w-1/3"
+                className="sm:laptop-table-content-show mobile-table-content-show"
               >
                 <div className="flex flex-row">
                   <p className="">Player Nickname</p>
@@ -83,7 +83,7 @@ function DevPtsTable() {
               </th>
               <th
                 scope="col"
-                className="p-2 text-sm font-medium text-gray-900 text-left w-1/3"
+                className="sm:laptop-table-content-show mobile-table-content-show"
               >
                 <div className="flex flex-row">
                   <p className="">Developement Points</p>
@@ -102,13 +102,13 @@ function DevPtsTable() {
               ? sortedData?.map((player) => {
                   return (
                     <tr className="border-b" key={player.kingdomId}>
-                      <td className="p-2 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <td className="sm:laptop-table-content-show mobile-table-content-show">
                         {player.continent}
                       </td>
-                      <td className="p-2 text-sm text-gray-900 font-light whitespace-nowrap">
+                      <td className="sm:laptop-table-content-show mobile-table-content-show">
                         {player.name}
                       </td>
-                      <td className="p-2 text-sm text-gray-900 font-light whitespace-nowrap">
+                      <td className="sm:laptop-table-content-show mobile-table-content-show">
                         {RoundNumbers(player.total)}
                       </td>
                     </tr>

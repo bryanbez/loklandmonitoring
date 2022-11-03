@@ -10,10 +10,10 @@ function DevPtsTracker() {
   return (
     <div>
       <h3 className="text-lg font-bold p-4"> Development Points Tracker</h3>
-      <i>Beta Project. Only supports dates under 7 days. </i>
+      <i className="p-3">Beta Project. Only supports dates under 7 days. </i>
       <div className="sm:md:lg:laptop-arrangement grid gap-4">
-        <div className="sm:md:lg:laptop-border grid p-3">
-          <div>
+        <div className="sm:md:lg:laptop-border grid grid-cols-1">
+          <div className="p-3">
             <TrackerForm></TrackerForm>
             <hr />
           </div>
