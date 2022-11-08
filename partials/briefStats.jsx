@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { devPtsListResult } from "../app/slices/playersdevpts";
 import { createBriefStats } from "../lib/createBriefStats";
-import GroupByFieldName from "../lib/groupByFieldName";
 import RoundNumbers from "../lib/roundNumbers";
 import SortData from "../lib/sort";
 import SumAllDevPts from "../lib/sumAllDevPts";
@@ -11,6 +10,8 @@ function BriefStats() {
   const result = useSelector(devPtsListResult);
   const [sortedData, setSortedData] = useState([]);
   const [isAsc, setIsAsc] = useState(false);
+
+  console.log(sortedData);
 
   const handleSortBy = (sortValue) => {
     setIsAsc(!isAsc);
@@ -24,7 +25,7 @@ function BriefStats() {
   };
 
   useEffect(() => {
-    if (result.result === true) {
+    if (result.length !== 0) {
       setIsAsc(!isAsc);
       setSortedData(
         SortData(
@@ -36,7 +37,7 @@ function BriefStats() {
     } else {
       setSortedData([]);
     }
-  }, [result.result]); // runs only on first successful fetch
+  }, [result.length]); // runs only on first successful fetch
 
   return (
     <div className="flex flex-col p-3">
@@ -55,7 +56,7 @@ function BriefStats() {
         </p>
       </div>
       <hr />
-      {result.result === true && (
+      {result.contribution && (
         <>
           <div className="text-lg font-semibold p-3">
             <p> Top Contributors by Continent </p>

@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import convertToApiResult from "../../lib/convertToApiResult";
 import filterBatchFetch from "../../lib/filterBatchFetch";
+import GroupByFieldName from "../../lib/groupByFieldName";
 import { splitDatesIntoWeeks } from "../../lib/splitDatesIntoWeeks";
 
 const initialState = {
@@ -28,17 +29,15 @@ export const fetchDevPtsInSpecificLand = createAsyncThunk(
     } else {
       let weeks = splitDatesIntoWeeks(dateFrom, dateTo);
       let apis = convertToApiResult(weeks, landId);
+      const response = await axios.all(
+        apis.map((url) =>
+          axios.get(url).then((res) => {
+            return res.data.contribution;
+          })
+        )
+      );
 
-      console.log(apis);
-
-      // dateApiList.forEach(async (everyLink) => {
-      //   const response = await axios.get(everyLink);
-      //   if (response.data.contribution != 0) {
-      //     allResults.push(...response.data.contribution);
-      //   }
-      // });
-      // filterBatchFetch(allResults);
-      // return "No Data";
+      return response;
     }
   }
 );
@@ -59,7 +58,9 @@ export const devPtsSlice = createSlice({
           state.devptslist = [];
         } else {
           state.status = "success";
-          state.devptslist = action.payload;
+          action.payload.length >= 2
+            ? (state.devptslist = filterBatchFetch(action.payload))
+            : (state.devptslist = action.payload);
           state.message = null;
         }
       })

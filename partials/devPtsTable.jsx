@@ -19,19 +19,20 @@ function DevPtsTable() {
   const [sortedData, setSortedData] = useState(result);
 
   const handleSortBy = (property = "continent") => {
-    let temp = [...result.contribution];
     setIsAsc(!isAsc);
-    setSortedData(SortData(temp, property, isAsc));
+    return result.contribution
+      ? setSortedData(SortData([...result.contribution], property, isAsc))
+      : [];
   };
 
   useEffect(() => {
-    if (result.result === true) {
+    if (result.length !== 0) {
       handleSortBy(result);
     }
     if (fetchStatus === "loading") {
       setSortedData([]);
     }
-  }, [result.result, fetchStatus]);
+  }, [result.contribution, fetchStatus]);
 
   return (
     <div className="flex flex-col p-4">
