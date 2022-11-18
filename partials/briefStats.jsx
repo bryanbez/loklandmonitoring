@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { devPtsListResult } from "../app/slices/playersdevpts";
 import { createBriefStats } from "../lib/createBriefStats";
@@ -10,8 +10,6 @@ function BriefStats() {
   const result = useSelector(devPtsListResult);
   const [sortedData, setSortedData] = useState([]);
   const [isAsc, setIsAsc] = useState(false);
-
-  console.log(sortedData);
 
   const handleSortBy = (sortValue) => {
     setIsAsc(!isAsc);
@@ -40,7 +38,7 @@ function BriefStats() {
   }, [result.length]); // runs only on first successful fetch
 
   return (
-    <div className="flex flex-col p-3">
+    <div className="flex flex-col p-3 w-full">
       <div className="text-lg font-semibold p-3">
         <p>Stats of Searched Land</p>
         <small>
@@ -48,7 +46,7 @@ function BriefStats() {
         </small>
       </div>
       <hr />
-      <div className="text-lg font-semibold p-3">
+      <div className="text-lg font-semibold">
         <p className="text-lg ">Total Development Points: </p>
         <p className="text-2xl">
           {" "}
@@ -56,11 +54,12 @@ function BriefStats() {
         </p>
       </div>
       <hr />
+      <br />
       {result.contribution && (
         <>
-          <div className="text-lg font-semibold p-3">
+          <div className="text-lg font-semibold">
             <p> Top Contributors by Continent </p>
-            <table className="min-w-full">
+            <table className="table-fixed">
               <thead className="border-b">
                 <tr>
                   <th

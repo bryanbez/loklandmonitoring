@@ -8,23 +8,15 @@ import TrackerForm from "../partials/trackerForm";
 function DevPtsTracker() {
   const devPts = useSelector(devPtsListResult);
   return (
-    <div>
+    <div className="w-auto">
       <h3 className="text-lg font-bold p-4"> Development Points Tracker</h3>
       <i className="p-3">Beta Project. Only supports dates under 7 days. </i>
-      <div className="sm:md:lg:laptop-arrangement grid gap-4">
-        <div className="sm:md:lg:laptop-border grid grid-cols-1">
-          <div className="p-3">
-            <TrackerForm></TrackerForm>
-            <hr />
-          </div>
-          <div>
-            {/* {devPts.length != 0 ? <DevPtsTable></DevPtsTable> : ""} */}
-            <DevPtsTable></DevPtsTable>
-            <hr />
-          </div>
+      <div className="sm:laptop-arrangement">
+        <div className="col-span-2">
+          <TrackerForm></TrackerForm>
+          <DevPtsTable></DevPtsTable>
         </div>
-        <div>
-          {/* {devPts.length != 0 ? <BriefStats></BriefStats> : ""} */}
+        <div className="">
           <BriefStats></BriefStats>
         </div>
       </div>

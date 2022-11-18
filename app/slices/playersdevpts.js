@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import convertToApiResult from "../../lib/convertToApiResult";
 import filterBatchFetch from "../../lib/filterBatchFetch";
-import GroupByFieldName from "../../lib/groupByFieldName";
 import { splitDatesIntoWeeks } from "../../lib/splitDatesIntoWeeks";
 
 const initialState = {
@@ -49,6 +48,7 @@ export const devPtsSlice = createSlice({
     builder
       .addCase(fetchDevPtsInSpecificLand.pending, (state, action) => {
         state.status = "loading";
+        state.devptslist = [];
       })
       .addCase(fetchDevPtsInSpecificLand.fulfilled, (state, action) => {
         state.status = "fullfiled";
